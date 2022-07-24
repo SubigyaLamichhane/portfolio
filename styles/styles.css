@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Bradon Grostesque Light';
+  src: url('../public/fonts/brandon-grotesque-light-58a8a4b38001d.otf');
+}
+@font-face {
+  font-family: 'Bradon Grostesque Bold';
+  src: url('../public/fonts/Brandon\ Grotesque\ Bold.ttf');
+}
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('../public/fonts/Proxima\ Nova\ Font.otf');
+}
+
+@layer base {
+  h1 {
+    @apply text-phoneh1;
+    @apply md:text-h1;
+    @apply font-bold;
+    @apply text-black;
+    @apply leading-phoneh1;
+    @apply lg:leading-h1;
+  }
+
+  h2 {
+    @apply text-phoneh2;
+    @apply md:text-h2;
+    @apply font-bold;
+    @apply text-black;
+    @apply leading-tight;
+  }
+
+  h3 {
+    @apply text-phoneh3;
+    @apply md:text-h3;
+    @apply font-light;
+    @apply gradient-text
+    /* @apply leading-h3; */;
+    @apply leading-phoneh3;
+    @apply lg:leading-h3;
+  }
+
+  h4 {
+    @apply text-phoneh4;
+    @apply md:text-h4;
+    @apply text-black;
+    @apply font-bold;
+    @apply lg:leading-h4;
+    @apply leading-h4;
+  }
+
+  p {
+    @apply text-p;
+    @apply md:text-p;
+    @apply text-gray-700;
+    @apply font-proxima;
+    @apply leading-phonep;
+    @apply lg:leading-p;
+  }
+}
+
+.bodydown {
+  zoom: 0.9;
+}
+
+.gradient-text {
+  @apply text-transparent;
+  @apply bg-clip-text;
+  @apply bg-gradient-to-r;
+  @apply from-from;
+  @apply to-to;
+}
+
+.smooth-shadow {
+  box-shadow: 2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+    6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+    12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+    22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+    41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
+}
+
+.scrollbar::-webkit-scrollbar {
+  width: 20px;
+  height: 20px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  border-radius: 50vh;
+  @apply bg-blank;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  @apply bg-gradient-to-r;
+  @apply from-from;
+  @apply to-to;
+
+  border-radius: 50vh;
+  border: 6px solid #f6f7ed;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  @apply bg-gradient-to-r;
+  @apply from-from;
+  @apply to-to;
+  border: 4px solid #f6f7ed;
+}
+
+.gradient-primary {
+  @apply bg-gradient-to-r;
+  @apply from-from;
+  @apply to-to;
+}
+
+.parent:hover .child {
+  @apply mr-32;
+}
+
+.scaledown {
+  zoom: 0.7;
+}
+
+.scaleup {
+  zoom: 1.428;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(180deg);
+  }
+}
+.animate-spin {
+  animation: spin 0.5s linear;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+  }
+}
+.animate-pulse {
+  animation: pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1);
+}

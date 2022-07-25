@@ -1,11 +1,11 @@
-const accountSid = 'ACe9b7eef48294cd0a5c69874a7ce0227c';
-const authToken = '[AuthToken]';
+const accountSid = process.env.ACCOUNT_SID;
+const authToken = process.env.AUTH_TOKEN;
 const client = require('twilio')(accountSid, authToken);
 
 interface Response {
   sid: string;
-  date_created: 'Mon, 25 Jul 2022 05:13:55 +0000';
-  date_updated: 'Mon, 25 Jul 2022 05:13:55 +0000';
+  date_created: string;
+  date_updated: string;
   date_sent: null;
   account_sid: string;
   to: string;
@@ -27,15 +27,17 @@ interface Response {
   };
 }
 
-export const sendSMS = () => {
+export const sendSMS = (message: string) => {
+  let sent = false;
   client.messages
     .create({
-      body: 'This is the message will it work',
-      messagingServiceSid: 'MGc6b568d570fc4d73e9ebe1c2a2176150',
+      body: message,
+      messagingServiceSid: process.env.MESSSAGE_SERVICE_SID,
       to: '+9779803810977',
     })
-    .then((message: Response) => console.log(message.sid))
+    .then((message: Response) => {
+      sent = true;
+    })
     .done();
+  return sent;
 };
-
-sendSMS();

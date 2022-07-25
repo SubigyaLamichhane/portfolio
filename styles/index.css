@@ -779,6 +779,22 @@ p {
   margin-top: 32px;
 }
 
+.mt-128 {
+  margin-top: 128px;
+}
+
+.mt-256 {
+  margin-top: 256px;
+}
+
+.mb-256 {
+  margin-bottom: 256px;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -853,6 +869,10 @@ p {
   width: fit-content;
 }
 
+.w-\[200px\] {
+  width: 200px;
+}
+
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -867,6 +887,11 @@ p {
 
 .translate-x-\[-75px\] {
   --tw-translate-x: -75px;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.translate-x-\[-100px\] {
+  --tw-translate-x: -100px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1099,6 +1124,14 @@ p {
 
 .pr-8 {
   padding-right: 8px;
+}
+
+.pt-256 {
+  padding-top: 256px;
+}
+
+.pt-128 {
+  padding-top: 128px;
 }
 
 .text-center {
@@ -1377,6 +1410,12 @@ p {
 
   .lg\:w-2\/3 {
     width: 66.666667%;
+  }
+
+  .lg\:scale-75 {
+    --tw-scale-x: .75;
+    --tw-scale-y: .75;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
   .lg\:overflow-x-hidden {

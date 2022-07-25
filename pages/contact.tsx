@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { Form, Formik } from 'formik';
 import type { NextPage } from 'next';
 import Head from 'next/head';
@@ -14,7 +15,7 @@ import GitHubLogo from '../public/github-logo.svg';
 import SubmitIcon from '../public/submit-icon.svg';
 
 const Home: NextPage = () => {
-  const myRef = createRef<HTMLDivElement>();
+  const messageRef = createRef<HTMLDivElement>();
   const copiedRef = createRef<HTMLDivElement>();
   const [menu, setMenu] = useState<null>(null);
   const copyToClipboard = (text: string) => {
@@ -50,16 +51,34 @@ const Home: NextPage = () => {
            text-gray-100 
            py-2 px-10 
            rounded-xl 
-           scale-75 
+           lg:scale-75 
            fixed w-[150px] 
            left-[50%] 
            translate-x-[-75px] 
            z-50
+           mt-2
            hidden
            "
           ref={copiedRef}
         >
           Copied!
+        </div>
+        <div
+          className="bg-gray-700
+           text-gray-100 
+           py-2 px-10 
+           rounded-xl 
+           lg:scale-75 
+           mt-2
+           fixed w-[200px] 
+           left-[50%] 
+           translate-x-[-100px] 
+           z-50
+           hidden
+           "
+          ref={messageRef}
+        >
+          Message Sent!
         </div>
         {
           // header
@@ -199,7 +218,7 @@ const Home: NextPage = () => {
         {
           // hire me
         }
-        <div className="max lg:flex items-center mb-128">
+        <div className="max lg:flex items-center">
           <div className="lg:w-1/2 lg:my-128 my-96 pr-8">
             <h4 className="mb-32">
               I&apos;m currently available for feelance work.
@@ -226,7 +245,7 @@ const Home: NextPage = () => {
               to="project-contact-form"
               spy={true}
               smooth={true}
-              offset={-40}
+              offset={150}
               duration={500}
               className="w-full lg:w-fit"
             >
@@ -246,20 +265,37 @@ const Home: NextPage = () => {
           <div className="lg:w-1/2 ">
             <Formik
               initialValues={{
-                usernameOrNumber: '',
-                password: '',
+                name: '',
+                email: '',
+                message: '',
               }}
               onSubmit={async (values, { setErrors }) => {
-                if (!values.usernameOrNumber) {
+                if (!values.name) {
                   setErrors({
-                    usernameOrNumber:
-                      'Please enter your username of phone number',
+                    name: 'Please enter your name.',
                   });
-                } else if (!values.password) {
+                } else if (!values.email) {
                   setErrors({
-                    password: 'Please Enter your password',
+                    email: 'Please enter your email.',
+                  });
+                } else if (!values.email) {
+                  setErrors({
+                    email: 'Please enter your email.',
                   });
                 } else {
+                  const response = await axios.post('/api/sendMessage', {
+                    message: values,
+                  });
+                  if (response.status === 200) {
+                    // @ts-ignore
+                    messageRef.current.classList.remove('hidden');
+                    // @ts-ignore
+                    messageRef.current.classList.add('animate-pulse');
+                    setTimeout(() => {
+                      // @ts-ignore
+                      messageRef.current.classList.add('hidden');
+                    }, 500);
+                  }
                 }
               }}
             >
@@ -310,7 +346,7 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div
-          className="max lg:flex items-center mb-128"
+          className="max lg:flex items-center mb-128 pt-128"
           id="project-contact-form"
         >
           <div className="lg:w-1/2 lg:my-128 my-96 pr-8">
@@ -339,20 +375,47 @@ const Home: NextPage = () => {
           <div className="lg:w-1/2 ">
             <Formik
               initialValues={{
-                usernameOrNumber: '',
-                password: '',
+                name: '',
+                email: '',
+                projectDetails: '',
+                budget: '',
+                timeline: '',
               }}
               onSubmit={async (values, { setErrors }) => {
-                if (!values.usernameOrNumber) {
+                if (!values.name) {
                   setErrors({
-                    usernameOrNumber:
-                      'Please enter your username of phone number',
+                    name: 'Please enter your name.',
                   });
-                } else if (!values.password) {
+                } else if (!values.email) {
                   setErrors({
-                    password: 'Please Enter your password',
+                    email: 'Please enter your email.',
+                  });
+                } else if (!values.projectDetails) {
+                  setErrors({
+                    projectDetails: 'Please enter the project details.',
+                  });
+                } else if (!values.budget) {
+                  setErrors({
+                    budget: 'Please enter the estimated budget.',
+                  });
+                } else if (!values.timeline) {
+                  setErrors({
+                    budget: 'Please enter the timeline.',
                   });
                 } else {
+                  const response = await axios.post('/api/sendMessage', {
+                    projectDetails: values,
+                  });
+                  if (response.status === 200) {
+                    // @ts-ignore
+                    messageRef.current.classList.remove('hidden');
+                    // @ts-ignore
+                    messageRef.current.classList.add('animate-pulse');
+                    setTimeout(() => {
+                      // @ts-ignore
+                      messageRef.current.classList.add('hidden');
+                    }, 1000);
+                  }
                 }
               }}
             >

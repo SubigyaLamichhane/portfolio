@@ -214,7 +214,7 @@ const Home: NextPage = () => {
         {
           // hero
         }
-        <div className="max flex flex-col items-center mt-96 lg:mt-64 mb-96">
+        <div className="max flex flex-col items-center mt-96 lg:mt-64">
           <h3 className="text-center">Hey there, I&apos;m Subigya</h3>
           <h1 className="text-center my-32">
             Full Stack <span className="hidden md:inline">Software</span>{' '}
@@ -254,7 +254,7 @@ const Home: NextPage = () => {
         {
           // tech stack
         }
-        <div className="bg-blank">
+        <div className="bg-blank mt-256">
           <div className="max lg:py-96 lg:mb-256 py-64 mb-96">
             <h3 className="text-center pb-64">Favourite Tech Stack</h3>
             <div

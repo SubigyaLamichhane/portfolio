@@ -10,11 +10,13 @@
     "watch-css": "npx tailwindcss -i ./styles/styles.css -o ./styles/index.css --watch"
   },
   "dependencies": {
+    "axios": "^0.27.2",
     "formik": "^2.2.9",
     "next": "12.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-scroll": "^1.8.7"
+    "react-scroll": "^1.8.7",
+    "twilio": "^3.80.0"
   },
   "devDependencies": {
     "@types/node": "18.0.6",

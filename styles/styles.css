@@ -142,5 +142,9 @@
   }
 }
 .animate-pulse {
-  animation: pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1);
+  animation: pulse 0.4s cubic-bezier(0.4, 0, 0.6, 1);
 }
+
+/* .left-center {
+  @apply left-[50%] - 75px;
+} */

@@ -2,9 +2,9 @@ import React, { HTMLAttributes } from 'react';
 
 type LinkButtonProps = HTMLAttributes<HTMLDivElement> & {};
 
-const LinkButton: React.FC<LinkButtonProps> = ({ children }) => {
+const LinkButton: React.FC<LinkButtonProps> = ({ children, ...props }) => {
   return (
-    <button
+    <div
       className="
       px-[48px]
       py-[24px]
@@ -18,11 +18,12 @@ const LinkButton: React.FC<LinkButtonProps> = ({ children }) => {
       w-full
       lg:w-fit
       "
+      {...props}
     >
-      <p className="text-gray-100 flex items-center justify-center">
+      <p className="text-gray-100 flex items-center justify-center text-center">
         {children}
       </p>
-    </button>
+    </div>
   );
 };
 

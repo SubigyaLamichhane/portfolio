@@ -8,7 +8,7 @@ export default class Document extends NextDocument {
         <Head></Head>
 
         <body className="bg-white lg:bodydown text-[18px] lg:text-[21px] font-proxima lg:overflow-x-hidden">
-          <div className="max-w-7xl m-auto px-5">
+          <div className="max-w-7xl m-auto lg:px-10 px-5">
             <Main />
             <NextScript />
           </div>

@@ -62,6 +62,7 @@ const Home: NextPage = () => {
       <main className="">
         <div
           className="bg-gray-700
+          
            text-gray-100 
            py-2 px-10 
            rounded-xl 
@@ -79,7 +80,7 @@ const Home: NextPage = () => {
         {
           // header
         }
-        <div className="lg:hidden">
+        <div className="lg:hidden max">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <div className="pr-64">
@@ -132,7 +133,7 @@ const Home: NextPage = () => {
 
           <div>{menu}</div>
         </div>
-        <div className="hidden lg:block">
+        <div className="hidden lg:block max">
           <div className="flex justify-between">
             <div className="flex items-center">
               <div className="pr-64">
@@ -213,7 +214,7 @@ const Home: NextPage = () => {
         {
           // hero
         }
-        <div className="flex flex-col items-center mt-96 lg:mt-64 mb-96">
+        <div className="max flex flex-col items-center mt-96 lg:mt-64 mb-96">
           <h3 className="text-center">Hey there, I&apos;m Subigya</h3>
           <h1 className="text-center my-32">
             Full Stack <span className="hidden md:inline">Software</span>{' '}
@@ -253,10 +254,11 @@ const Home: NextPage = () => {
         {
           // tech stack
         }
-        <div className="lg:py-96 bg-blank lg:mb-256 py-64 mb-96">
-          <h3 className="text-center pb-64">Favourite Tech Stack</h3>
-          <div
-            className="
+        <div className="bg-blank">
+          <div className="max lg:py-96 lg:mb-256 py-64 mb-96">
+            <h3 className="text-center pb-64">Favourite Tech Stack</h3>
+            <div
+              className="
               pb-10 
               max-w-[1024px] 
               overflow-x-scroll 
@@ -267,94 +269,96 @@ const Home: NextPage = () => {
               lg:mx-128  
               items-center
             "
-          >
-            <div className="lg:pr-128 pr-32">
-              <Image
-                layout="fixed"
-                src={NextJSIcon}
-                width={100}
-                height={100}
-                alt="nextjs"
-              />
-            </div>
-            <div className="lg:pr-128 pr-32 ">
-              <Image
-                layout="fixed"
-                src={NodeJSIcon}
-                width={100}
-                height={100}
-                alt="nodejs"
-              />
-            </div>
-            <div className="lg:pr-128 pr-32 ">
-              <Image
-                layout="fixed"
-                src={TypescriptIcon}
-                width={100}
-                height={100}
-                alt="typescript"
-              />
-            </div>
-            <div className="lg:pr-128 pr-32 ">
-              <Image
-                layout="fixed"
-                src={PostgresSQLIcon}
-                width={100}
-                height={100}
-                alt="postgresql"
-              />
-            </div>
-            <div className="lg:pr-128 pr-32 ">
-              <Image
-                layout="fixed"
-                src={GraphQLIcon}
-                width={100}
-                height={100}
-                alt="graphql"
-              />
-            </div>
-            <div className="lg:pr-128 pr-32">
-              <Image
-                layout="fixed"
-                src={RedisIcon}
-                width={100}
-                height={100}
-                alt="redis"
-              />
-            </div>
-            <div className="lg:pr-128 pr-32 ">
-              <Image
-                layout="fixed"
-                src={ReactJSIcon}
-                width={100}
-                height={100}
-                alt="reactjs"
-              />
-            </div>
-            <div className="lg:pr-128 pr-32 ">
-              <Image
-                layout="fixed"
-                src={ApolloIcon}
-                width={100}
-                height={100}
-                alt="apollo"
-              />
-            </div>
-            <div className=" ">
-              <Image
-                layout="fixed"
-                src={TypeOrmIcon}
-                width={100}
-                height={100}
-                alt="typeorm"
-              />
+            >
+              <div className="lg:pr-128 pr-32">
+                <Image
+                  layout="fixed"
+                  src={NextJSIcon}
+                  width={100}
+                  height={100}
+                  alt="nextjs"
+                />
+              </div>
+              <div className="lg:pr-128 pr-32 ">
+                <Image
+                  layout="fixed"
+                  src={NodeJSIcon}
+                  width={100}
+                  height={100}
+                  alt="nodejs"
+                />
+              </div>
+              <div className="lg:pr-128 pr-32 ">
+                <Image
+                  layout="fixed"
+                  src={TypescriptIcon}
+                  width={100}
+                  height={100}
+                  alt="typescript"
+                />
+              </div>
+              <div className="lg:pr-128 pr-32 ">
+                <Image
+                  layout="fixed"
+                  src={PostgresSQLIcon}
+                  width={100}
+                  height={100}
+                  alt="postgresql"
+                />
+              </div>
+              <div className="lg:pr-128 pr-32 ">
+                <Image
+                  layout="fixed"
+                  src={GraphQLIcon}
+                  width={100}
+                  height={100}
+                  alt="graphql"
+                />
+              </div>
+              <div className="lg:pr-128 pr-32">
+                <Image
+                  layout="fixed"
+                  src={RedisIcon}
+                  width={100}
+                  height={100}
+                  alt="redis"
+                />
+              </div>
+              <div className="lg:pr-128 pr-32 ">
+                <Image
+                  layout="fixed"
+                  src={ReactJSIcon}
+                  width={100}
+                  height={100}
+                  alt="reactjs"
+                />
+              </div>
+              <div className="lg:pr-128 pr-32 ">
+                <Image
+                  layout="fixed"
+                  src={ApolloIcon}
+                  width={100}
+                  height={100}
+                  alt="apollo"
+                />
+              </div>
+              <div className=" ">
+                <Image
+                  layout="fixed"
+                  src={TypeOrmIcon}
+                  width={100}
+                  height={100}
+                  alt="typeorm"
+                />
+              </div>
             </div>
           </div>
         </div>
+
         {
           // projects
         }
-        <div ref={myRef} id="projects">
+        <div ref={myRef} id="projects" className="max">
           <h4 className="text-center pb-32">Projects</h4>
           <div className="flex flex-col items-center w-full">
             <p className="max-w-2xl text-center lg:mb-128 mb-64">
@@ -420,6 +424,7 @@ const Home: NextPage = () => {
           </div>
           <div className="lg:hidden">
             <ProjectPhone
+              color="infrastructureAmbulance"
               image={InfrastructureAmbulanceImage}
               title="Infrastructure Ambulance"
               link="https://infrastructure-ambulance-frontend-vercel.vercel.app/"
@@ -433,6 +438,7 @@ const Home: NextPage = () => {
               location where the problem occured exactly.
             </ProjectPhone>
             <ProjectPhone
+              color="kecThoughts"
               image={KecThoughtsImage}
               title="KEC Thoughts"
               link="https://subigya.tech/"
@@ -444,6 +450,7 @@ const Home: NextPage = () => {
               and it will be removed from the website.
             </ProjectPhone>
             <ProjectPhone
+              color="ticTacToe"
               image={MultiplayerTicTacToeImage}
               title="Multiplayer Tic-Tac-Toe"
               link="https://confident-bell-24991a.netlify.app/"
@@ -459,39 +466,41 @@ const Home: NextPage = () => {
         {
           // hire me
         }
-        <div className="lg:w-1/2 lg:my-256 my-96">
-          <h4 className="mb-32">
-            I&apos;m currently available for feelance work.
-          </h4>
-          <p className="mb-32">
-            If you&apos;re looking for a enthusiast full stack develoer to help
-            you build or upgrade your projects, let&apos;s talk.
-          </p>
-          <div className="flex mb-64">
-            <p
-              className="pr-32 text-sm gradient-text hover:cursor-pointer"
-              onClick={() => copyToClipboard('subigyalamichhane@gmail.com')}
-            >
-              subigyalamichhane@gmail.com
+        <div className="max">
+          <div className="lg:w-1/2 lg:my-256 my-96">
+            <h4 className="mb-32">
+              I&apos;m currently available for feelance work.
+            </h4>
+            <p className="mb-32">
+              If you&apos;re looking for a enthusiast full stack develoer to
+              help you build or upgrade your projects, let&apos;s talk.
             </p>
-            <p
-              className="pr-32 text-sm text-black hover:cursor-pointer"
-              onClick={() => copyToClipboard('+9779840138330')}
-            >
-              +9779840138330
-            </p>
+            <div className="flex mb-64">
+              <p
+                className="pr-32 text-sm gradient-text hover:cursor-pointer"
+                onClick={() => copyToClipboard('subigyalamichhane@gmail.com')}
+              >
+                subigyalamichhane@gmail.com
+              </p>
+              <p
+                className="pr-32 text-sm text-black hover:cursor-pointer"
+                onClick={() => copyToClipboard('+9779840138330')}
+              >
+                +9779840138330
+              </p>
+            </div>
+            <Link href="/contact">
+              <Button>
+                <span className="mr-16 group-hover:mr-32">Hire Me</span>
+                <Image
+                  src={SubmitIcon}
+                  width={30}
+                  height={30}
+                  alt="submit icon"
+                />
+              </Button>
+            </Link>
           </div>
-          <Link href="/contact">
-            <Button>
-              <span className="mr-16 group-hover:mr-32">Hire Me</span>
-              <Image
-                src={SubmitIcon}
-                width={30}
-                height={30}
-                alt="submit icon"
-              />
-            </Button>
-          </Link>
         </div>
       </main>
 

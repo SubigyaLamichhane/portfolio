@@ -7,7 +7,7 @@ interface FooterProps {}
 const Footer: React.FC<FooterProps> = ({}) => {
   return (
     <footer className="bg-blank">
-      <div className="flex flex-col-reverse items-center md:flex-row md:justify-between py-5">
+      <div className="max flex flex-col-reverse items-center md:flex-row md:justify-between py-5">
         <p className="text-sm text-center">
           Copyright Subigya Lamichhane 2022. All rights reserved.
         </p>

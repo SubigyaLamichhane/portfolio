@@ -145,6 +145,10 @@
   animation: pulse 0.4s cubic-bezier(0.4, 0, 0.6, 1);
 }
 
+.max {
+  @apply max-w-7xl m-auto lg:px-10 px-5;
+}
+
 /* .left-center {
   @apply left-[50%] - 75px;
 } */

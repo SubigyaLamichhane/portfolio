@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { createRef, useState } from 'react';
 import { Link as ScrollLink } from 'react-scroll';
 import Button from '../components/Button';
+import Footer from '../components/Footer';
 import InputField from '../components/InputField';
 import DownArrow from '../public/down-arrow.svg';
 import Logo from '../public/favicon.svg';
@@ -43,7 +44,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.svg" />
       </Head>
 
-      <main className="">
+      <main className="mb-128">
         <div
           className="bg-gray-700
            text-gray-100 
@@ -63,7 +64,7 @@ const Home: NextPage = () => {
         {
           // header
         }
-        <div className="lg:hidden">
+        <div className="lg:hidden max">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <div className="pr-64">
@@ -116,7 +117,7 @@ const Home: NextPage = () => {
 
           <div>{menu}</div>
         </div>
-        <div className="hidden lg:block">
+        <div className="hidden lg:block max">
           <div className="flex justify-between">
             <div className="flex items-center">
               <div className="pr-64">
@@ -198,7 +199,7 @@ const Home: NextPage = () => {
         {
           // hire me
         }
-        <div className="lg:flex items-center mb-128">
+        <div className="max lg:flex items-center mb-128">
           <div className="lg:w-1/2 lg:my-128 my-96 pr-8">
             <h4 className="mb-32">
               I&apos;m currently available for feelance work.
@@ -308,7 +309,10 @@ const Home: NextPage = () => {
             </Formik>
           </div>
         </div>
-        <div className="lg:flex items-center mb-128" id="project-contact-form">
+        <div
+          className="max lg:flex items-center mb-128"
+          id="project-contact-form"
+        >
           <div className="lg:w-1/2 lg:my-128 my-96 pr-8">
             <h4 className="mb-32">Got a project in mind?</h4>
             <p className="mb-32">
@@ -416,22 +420,7 @@ const Home: NextPage = () => {
         </div>
       </main>
 
-      <footer className="bg-blank">
-        <div className="flex flex-col-reverse items-center md:flex-row md:justify-between py-5">
-          <p className="text-sm text-center">
-            Copyright Subigya Lamichhane 2022. All rights reserved.
-          </p>
-          <div>
-            <a
-              href="https://www.github.com/subigyalamichhane"
-              target={'_blank'}
-              rel="noreferrer"
-            >
-              <Image src={GitHubLogo} width={23} height={23} alt="github" />
-            </a>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };

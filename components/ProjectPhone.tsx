@@ -6,6 +6,7 @@ type ProjectOverlayProps = HTMLAttributes<HTMLParagraphElement> & {
   image: StaticImageData;
   title: string;
   link: string;
+  color: string;
 };
 
 const ProjectPhone: React.FC<ProjectOverlayProps> = ({
@@ -13,12 +14,13 @@ const ProjectPhone: React.FC<ProjectOverlayProps> = ({
   title,
   children,
   link,
+  color,
 }) => {
   return (
     <div>
       <h2 className="mb-32">{title}</h2>
       <div className="w-full min-h-[220px]">
-        <div className="p-5 relative bg-infrastructureAmbulance min-h-[100px]">
+        <div className={'p-5 relative  min-h-[100px]' + ` bg-${color}`}>
           <div className="absolute top-30">
             <Image src={image} alt="infrastructure ambulance" />
           </div>

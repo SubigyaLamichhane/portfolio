@@ -70,10 +70,11 @@ const Home: NextPage = () => {
            rounded-xl 
            lg:scale-75 
            mt-2
-           fixed w-[200px] 
+           fixed w-[250px] 
            left-[50%] 
-           translate-x-[-100px] 
+           translate-x-[-125px] 
            z-50
+           text-center
            hidden
            "
           ref={messageRef}
@@ -294,7 +295,7 @@ const Home: NextPage = () => {
                     setTimeout(() => {
                       // @ts-ignore
                       messageRef.current.classList.add('hidden');
-                    }, 500);
+                    }, 2000);
                   }
                 }
               }}
@@ -414,7 +415,7 @@ const Home: NextPage = () => {
                     setTimeout(() => {
                       // @ts-ignore
                       messageRef.current.classList.add('hidden');
-                    }, 1000);
+                    }, 3000);
                   }
                 }
               }}

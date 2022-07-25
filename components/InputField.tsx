@@ -10,13 +10,17 @@ type InputFieldProps = InputHTMLAttributes<
   textarea?: boolean;
 };
 
-const InputField: React.FC<InputFieldProps> = ({ size: _, ...props }) => {
+const InputField: React.FC<InputFieldProps> = ({
+  size: _,
+  textarea,
+  ...props
+}) => {
   // !!error : error in string so checking empty string
   const [field, { error }] = useField(props);
   return (
     <div className="w-full">
       <h4 className="text-p font-proxima">{props.label}</h4>
-      {props.textarea ? (
+      {textarea ? (
         <textarea
           className="
         bg-blank

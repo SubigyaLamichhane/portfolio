@@ -1,6 +1,8 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { sendEmail } from '../../utils/sendEmail';
 import { sendSMS } from '../../utils/sendSMS';
+import { sendWithSendGrid } from '../../utils/sendWithSendGrid';
 
 type Data = {
   sent: boolean;
@@ -29,7 +31,9 @@ export default function handler(
       const messageData: MessageData = req.body.message;
       const { name, email, message } = messageData;
       const messageToSend = `${name} (${email}): ${message}`;
-      const sent = sendSMS(messageToSend);
+      // const sent = sendSMS(messageToSend);
+      const sent = sendWithSendGrid(messageToSend);
+      console.log(sent);
       res.status(200).json({ sent });
     } else if (req.body.projectDetails) {
       const projectDetailsData: ProjectDetailsData = req.body.projectDetails;
@@ -40,7 +44,7 @@ export default function handler(
         project details: ${projectDetails} 
         budget: ${budget} 
         timeline: ${timeline}`;
-      const sent = sendSMS(messageToSend);
+      const sent = sendWithSendGrid(messageToSend);
       res.status(200).json({ sent });
     }
   }

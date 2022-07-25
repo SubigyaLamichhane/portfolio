@@ -37,6 +37,7 @@ export const sendSMS = (message: string) => {
     })
     .then((message: Response) => {
       sent = true;
+      console.log(message);
     })
     .done();
   return sent;

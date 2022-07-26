@@ -1,21 +1,24 @@
-const sgMail = require('@sendgrid/mail');
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+import { MailDataRequired } from '@sendgrid/mail';
 
-export const sendWithSendGrid = (messageData: string) => {
+import sgMail from '@sendgrid/mail';
+sgMail.setApiKey(process.env.SENDGRID_API_KEY as string);
+
+export const sendWithSendGrid = async (messageData: string) => {
+  console.log(messageData);
   const msg = {
     to: 'subigyalamichhane@gmail.com', // Change to your recipient
     from: 'subigyalamichhane@gmail.com', // Change to your verified sender
     subject: 'Sending with SendGrid is Fun',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: '<strong>and easy to do anywhere, even with Node.js</strong>',
-  };
-  sgMail
-    .send(msg)
-    .then(() => {
-      console.log('Email sent');
-    })
-    .catch((error: any) => {
-      console.error(error);
-    });
-  return true;
+    text: messageData,
+    html: `<strong>${messageData}</strong>`,
+  } as MailDataRequired;
+  const response = await sgMail.send(msg);
+  console.log(response);
+  // .then(() => {
+  //   console.log('Email sent');
+  // })
+  // .catch((error: any) => {
+  //   console.error(error);
+  // });
+  return response;
 };

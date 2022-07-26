@@ -3,9 +3,12 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { sendEmail } from '../../utils/sendEmail';
 import { sendSMS } from '../../utils/sendSMS';
 import { sendWithSendGrid } from '../../utils/sendWithSendGrid';
+import sgMail, { MailDataRequired } from '@sendgrid/mail';
 
 type Data = {
   sent: boolean;
+  email: any;
+  SMS: any;
 };
 
 type MessageData = {
@@ -22,7 +25,7 @@ type ProjectDetailsData = {
   timeline: string;
 };
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
@@ -31,10 +34,22 @@ export default function handler(
       const messageData: MessageData = req.body.message;
       const { name, email, message } = messageData;
       const messageToSend = `${name} (${email}): ${message}`;
-      // const sent = sendSMS(messageToSend);
-      const sent = sendWithSendGrid(messageToSend);
-      console.log(sent);
-      res.status(200).json({ sent });
+      let SMSResponse: any;
+      try {
+        SMSResponse = await sendSMS(messageToSend);
+      } catch (error) {
+        SMSResponse = error;
+      }
+
+      let emailResponse: any;
+      try {
+        emailResponse = await sendWithSendGrid(messageToSend);
+      } catch (error) {
+        emailResponse = error;
+      }
+      res
+        .status(200)
+        .json({ sent: true, email: emailResponse, SMS: SMSResponse });
     } else if (req.body.projectDetails) {
       const projectDetailsData: ProjectDetailsData = req.body.projectDetails;
       const { name, email, projectDetails, budget, timeline } =
@@ -44,8 +59,22 @@ export default function handler(
         project details: ${projectDetails} 
         budget: ${budget} 
         timeline: ${timeline}`;
-      const sent = sendWithSendGrid(messageToSend);
-      res.status(200).json({ sent });
+      let SMSResponse: any;
+      try {
+        SMSResponse = await sendSMS(messageToSend);
+      } catch (error) {
+        SMSResponse = error;
+      }
+
+      let emailResponse: any;
+      try {
+        emailResponse = await sendWithSendGrid(messageToSend);
+      } catch (error) {
+        emailResponse = error;
+      }
+      res
+        .status(200)
+        .json({ sent: true, email: emailResponse, SMS: SMSResponse });
     }
   }
 }

@@ -287,6 +287,7 @@ const Home: NextPage = () => {
                   const response = await axios.post('/api/sendMessage', {
                     message: values,
                   });
+                  console.log(response);
                   if (response.status === 200) {
                     // @ts-ignore
                     messageRef.current.classList.remove('hidden');

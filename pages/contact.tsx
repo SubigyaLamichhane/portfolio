@@ -287,7 +287,7 @@ const Home: NextPage = () => {
                   const response = await axios.post('/api/sendMessage', {
                     message: values,
                   });
-                  console.log(response);
+                  // console.log(response);
                   if (response.status === 200) {
                     // @ts-ignore
                     messageRef.current.classList.remove('hidden');
@@ -297,6 +297,34 @@ const Home: NextPage = () => {
                       // @ts-ignore
                       messageRef.current.classList.add('hidden');
                     }, 2000);
+                  } else {
+                    const response = await axios.post('/api/sendMessage', {
+                      message: values,
+                    });
+                    if (response.status === 200) {
+                      // @ts-ignore
+                      messageRef.current.classList.remove('hidden');
+                      // @ts-ignore
+                      messageRef.current.classList.add('animate-pulse');
+                      setTimeout(() => {
+                        // @ts-ignore
+                        messageRef.current.classList.add('hidden');
+                      }, 2000);
+                    } else {
+                      const response = await axios.post('/api/sendMessage', {
+                        message: values,
+                      });
+                      if (response.status === 200) {
+                        // @ts-ignore
+                        messageRef.current.classList.remove('hidden');
+                        // @ts-ignore
+                        messageRef.current.classList.add('animate-pulse');
+                        setTimeout(() => {
+                          // @ts-ignore
+                          messageRef.current.classList.add('hidden');
+                        }, 2000);
+                      }
+                    }
                   }
                 }
               }}
@@ -408,6 +436,7 @@ const Home: NextPage = () => {
                   const response = await axios.post('/api/sendMessage', {
                     projectDetails: values,
                   });
+                  // console.log(response);
                   if (response.status === 200) {
                     // @ts-ignore
                     messageRef.current.classList.remove('hidden');
@@ -416,7 +445,35 @@ const Home: NextPage = () => {
                     setTimeout(() => {
                       // @ts-ignore
                       messageRef.current.classList.add('hidden');
-                    }, 3000);
+                    }, 2000);
+                  } else {
+                    const response = await axios.post('/api/sendMessage', {
+                      projectDetails: values,
+                    });
+                    if (response.status === 200) {
+                      // @ts-ignore
+                      messageRef.current.classList.remove('hidden');
+                      // @ts-ignore
+                      messageRef.current.classList.add('animate-pulse');
+                      setTimeout(() => {
+                        // @ts-ignore
+                        messageRef.current.classList.add('hidden');
+                      }, 2000);
+                    } else {
+                      const response = await axios.post('/api/sendMessage', {
+                        projectDetails: values,
+                      });
+                      if (response.status === 200) {
+                        // @ts-ignore
+                        messageRef.current.classList.remove('hidden');
+                        // @ts-ignore
+                        messageRef.current.classList.add('animate-pulse');
+                        setTimeout(() => {
+                          // @ts-ignore
+                          messageRef.current.classList.add('hidden');
+                        }, 2000);
+                      }
+                    }
                   }
                 }
               }}
@@ -464,7 +521,7 @@ const Home: NextPage = () => {
                         </div>
                       </div>
                     </div>
-                    <button className="w-full">
+                    <button className="w-full" type="submit">
                       <Button>
                         <span className="mr-16 group-hover:mr-32">
                           Let&apos;s Do This

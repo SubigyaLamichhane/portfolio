@@ -8,7 +8,7 @@ import sgMail, { MailDataRequired } from '@sendgrid/mail';
 type Data = {
   sent: boolean;
   email: any;
-  SMS: any;
+  // sms: any;
 };
 
 type MessageData = {
@@ -34,12 +34,12 @@ export default async function handler(
       const messageData: MessageData = req.body.message;
       const { name, email, message } = messageData;
       const messageToSend = `${name} (${email}): ${message}`;
-      let SMSResponse: any;
-      try {
-        SMSResponse = await sendSMS(messageToSend);
-      } catch (error) {
-        SMSResponse = error;
-      }
+      // let SMSResponse: any;
+      // try {
+      //   SMSResponse = await sendSMS(messageToSend);
+      // } catch (error) {
+      //   SMSResponse = error;
+      // }
 
       let emailResponse: any;
       try {
@@ -47,9 +47,7 @@ export default async function handler(
       } catch (error) {
         emailResponse = error;
       }
-      res
-        .status(200)
-        .json({ sent: true, email: emailResponse, SMS: SMSResponse });
+      res.status(200).json({ sent: true, email: emailResponse });
     } else if (req.body.projectDetails) {
       const projectDetailsData: ProjectDetailsData = req.body.projectDetails;
       const { name, email, projectDetails, budget, timeline } =
@@ -59,12 +57,12 @@ export default async function handler(
         project details: ${projectDetails} 
         budget: ${budget} 
         timeline: ${timeline}`;
-      let SMSResponse: any;
-      try {
-        SMSResponse = await sendSMS(messageToSend);
-      } catch (error) {
-        SMSResponse = error;
-      }
+      // let SMSResponse: any;
+      // try {
+      //   SMSResponse = await sendSMS(messageToSend);
+      // } catch (error) {
+      //   SMSResponse = error;
+      // }
 
       let emailResponse: any;
       try {
@@ -72,9 +70,7 @@ export default async function handler(
       } catch (error) {
         emailResponse = error;
       }
-      res
-        .status(200)
-        .json({ sent: true, email: emailResponse, SMS: SMSResponse });
+      res.status(200).json({ sent: true, email: emailResponse });
     }
   }
 }

@@ -27,18 +27,17 @@ interface Response {
   };
 }
 
-export const sendSMS = (message: string) => {
-  let sent = false;
-  client.messages
+export const sendSMS = async (message: string) => {
+  const response = await client.messages
     .create({
       body: message,
       messagingServiceSid: process.env.MESSSAGE_SERVICE_SID,
       to: '+9779803810977',
     })
-    .then((message: Response) => {
-      sent = true;
-      console.log(message);
-    })
+    // .then((message: Response) => {
+    //   sent = true;
+    //   console.log(message);
+    // })
     .done();
-  return sent;
+  return response;
 };

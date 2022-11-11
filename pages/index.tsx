@@ -97,7 +97,7 @@ const Home: NextPage = () => {
                     setMenu(
                       //@ts-ignore
                       <div className="flex flex-col items-center w-full animate-pulse">
-                        <Link href="/about">
+                        {/* <Link href="/about">
                           <div className="w-full border-y-2 border-gray-700 py-3">
                             <p className="text-center">About Me</p>
                           </div>
@@ -106,7 +106,7 @@ const Home: NextPage = () => {
                           <div className="w-full border-b-2 border-gray-700 py-3">
                             <p className="text-center">Contact Me</p>
                           </div>
-                        </Link>
+                        </Link> */}
                         <a
                           href="https://github.com/SubigyaLamichhane"
                           className="block w-full"

@@ -381,8 +381,8 @@ const Home: NextPage = () => {
                 and broken sewage pipes, drinking water problems, etc.
                 <br />
                 <br />
-                The system inturoduces a map which can be used to enter the
-                location where the problem occured exactly.
+                The system introduces a map which can be used to enter the
+                location where the problem occurred exactly.
               </ProjectOverlay>
             </div>
             {

@@ -141,12 +141,12 @@ const Home: NextPage = () => {
                   <Image src={Logo} width={70} height={70} alt="logo" />
                 </Link>
               </div>
-              <div className="pr-64 text-sm text-black">
+              {/* <div className="pr-64 text-sm text-black">
                 <Link href="/about">About Me</Link>
               </div>
               <div className="pr-64 text-sm text-black">
                 <Link href="/about">Contact Me</Link>
-              </div>
+              </div> */}
             </div>
             <div className="flex">
               <div className=" mr-32 flex items-center">
